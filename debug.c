@@ -10,6 +10,11 @@ void dissassembleChunk(Chunk* chunk, const char* name) {
     }
 }
 
+static int simpleInstruction(const char* name, int offset) {
+    printf("%s\n", name);
+    return offset + 1;
+}
+
 int dissassembleInstruction(Chunk* chunk, int offset) {
     printf("%04d ", offset);
 
@@ -21,9 +26,4 @@ int dissassembleInstruction(Chunk* chunk, int offset) {
             printf("Unkown opcode %d\n", instruction);
             return offset + 1;
     }
-}
-
-static int simpleInstruction(const char* name, int offset) {
-    printf("%s\n", name);
-    return offset + 1;
 }
